@@ -1,16 +1,17 @@
 import React from "react";
 import { movies } from "../data";
+import { v4 as uuid } from "uuid"
 
 function Movies() {
   return (
     <div>
       <h1>Movies Page</h1>
       {movies.map((movie) => (
-        <div>
+        <div key={uuid()}>
           <p>{movie.title} (Time: {movie.time.toString()} minutes)</p>
           <ul>
             {movie.genres.map((genre) => (
-              <li>{genre}</li>
+              <li key={uuid()}>{genre}</li>
             ))}
           </ul>
         </div>
